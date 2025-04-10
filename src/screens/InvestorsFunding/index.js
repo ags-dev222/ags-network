@@ -1,0 +1,1 @@
+export { InvestorsFunding } from './InvestorsFunding';

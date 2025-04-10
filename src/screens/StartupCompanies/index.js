@@ -1,0 +1,1 @@
+export { StartupCompanies } from './StartupCompanies';

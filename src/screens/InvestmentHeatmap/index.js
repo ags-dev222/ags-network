@@ -1,0 +1,1 @@
+export { InvestmentHeatmap } from './InvestmentHeatmap';
