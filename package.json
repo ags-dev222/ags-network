@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postinstall": "tailwindcss build"
+    "postinstall": "npx tailwindcss build"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
