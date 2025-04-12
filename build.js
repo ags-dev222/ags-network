@@ -1,5 +1,5 @@
 // filepath: s:\CS\AGS-Eco\build.js
-import { build } from "vite/dist/node/index.js"; // Explicitly import the correct path
+import { build } from "vite"; // Import from the main package
 
 (async () => {
   try {
