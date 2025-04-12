@@ -1,11 +1,12 @@
 // filepath: s:\CS\AGS-Eco\build.js
 import { build } from "vite";
 
-build()
-  .then(() => {
+(async () => {
+  try {
+    await build();
     console.log("Build completed successfully.");
-  })
-  .catch((err) => {
+  } catch (err) {
     console.error("Build failed:", err);
     process.exit(1);
-  });
+  }
+})();
