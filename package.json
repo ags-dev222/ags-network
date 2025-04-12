@@ -6,7 +6,7 @@
   "description": "An AGS Startup Ecosystem Project",
   "scripts": {
     "dev": "vite",
-    "build": "node build.js"
+    "build": "vite build"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
