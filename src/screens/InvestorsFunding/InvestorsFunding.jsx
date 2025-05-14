@@ -1,4 +1,3 @@
-import React from 'react';
 
 const investorsData = [
   { name: "KIC", location: 'Accra', support: 'Series A', deal: '$500K - 1M', total:'$100M', nss: '1,000-2,000', top: 'My Figtech, Crop Capital...' },
