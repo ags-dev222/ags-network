@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { LineChart, PieChart } from '../../components/charts';
 
 const FinancialInsights = () => {
 
@@ -166,28 +166,71 @@ const UpcomingEvents = () => (
       {/* Charts Section */}
   <div className="grid grid-cols-5 gap-4">
   {/* Financial Overview Chart */}
-  <div className=" col-span-3  text-white p-4 rounded-lg relative">
-    <h4 className="text-lg font-semibold mb-2"></h4>
-    <div className="h-79 w-full  flex  items-center justify-center text-green-200">
-      <img 
-        src="/financial-overview.jpg"  // Direct image URL or path
-        alt="Financial Overview" 
-        className="h-79 w-full object-cover" 
-      />
-    </div>
+  <div className="col-span-3 bg-white p-6 rounded-lg shadow-sm">
+    <h4 className="text-lg font-semibold mb-4 text-gray-700">Revenue Trend</h4>
+    <LineChart 
+      data={{
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [
+          {
+            label: 'Total Revenue',
+            data: [5000, 7500, 8200, 9100, 12000, 11500, 13200, 14800, 16500, 17200, 19000, 21000],
+            borderColor: 'rgba(6, 99, 32, 1)',
+            backgroundColor: 'rgba(6, 99, 32, 0.1)',
+            tension: 0.4,
+            fill: true,
+          },
+          {
+            label: 'Government Support',
+            data: [1500, 2000, 2200, 2500, 3000, 2800, 3200, 3500, 3800, 4000, 4200, 4500],
+            borderColor: 'rgba(212, 165, 23, 1)',
+            backgroundColor: 'rgba(212, 165, 23, 0.1)',
+            tension: 0.4,
+            fill: true,
+          },
+          {
+            label: 'Partnership Support',
+            data: [2000, 3000, 3500, 4000, 5500, 5200, 6000, 7000, 8000, 8500, 9500, 10500],
+            borderColor: 'rgba(59, 130, 246, 1)',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            tension: 0.4,
+            fill: true,
+          },
+        ],
+      }}
+      height={300}
+    />
   </div>
 
   {/* Pie Chart */}
-  <div className=" p-4 col-span-2 rounded-lg flex flex-col items-center justify-center">
-    <h4 className="text-lg font-semibold mb-2"></h4>
-    <div className="h-60 w-60 flex  items-center justify-center text-green-200">
-      <img 
-        src="/pie-chart.jpg"  // Direct image URL or path
-        alt="Income Overview" 
-        className="h-60 w-60 object-cover" 
-      />
-    </div>
-        
+  <div className="p-6 col-span-2 bg-white rounded-lg shadow-sm">
+    <h4 className="text-lg font-semibold mb-4 text-gray-700">Revenue Sources</h4>
+    <PieChart 
+      data={{
+        labels: ['Government', 'Partnerships', 'Grants', 'Investments', 'Others'],
+        datasets: [
+          {
+            data: [4500, 10500, 3000, 2500, 500],
+            backgroundColor: [
+              'rgba(212, 165, 23, 0.8)',
+              'rgba(59, 130, 246, 0.8)',
+              'rgba(6, 99, 32, 0.8)',
+              'rgba(239, 68, 68, 0.8)',
+              'rgba(156, 163, 175, 0.8)',
+            ],
+            borderColor: [
+              'rgba(212, 165, 23, 1)',
+              'rgba(59, 130, 246, 1)',
+              'rgba(6, 99, 32, 1)',
+              'rgba(239, 68, 68, 1)',
+              'rgba(156, 163, 175, 1)',
+            ],
+            borderWidth: 1,
+          },
+        ],
+      }}
+      height={280}
+    />
   </div>
 </div>
 

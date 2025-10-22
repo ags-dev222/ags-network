@@ -1,0 +1,10 @@
+node_modules
+.git
+*.log
+.vscode
+.idea
+.DS_Store
+*.local
+src
+public
+*.md

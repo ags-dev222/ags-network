@@ -1,7 +1,5 @@
 import React from "react";
-
-
-
+import { BarChart, LineChart } from '../../components/charts';
 
 // Metric Card Component
 const MetricCard = ({ title, value, change }) => {
@@ -32,39 +30,81 @@ const MetricCard = ({ title, value, change }) => {
 };
 
 
-const GrowthChart = ({ image }) => (
-  <div className=" p-4 ">
-    <h4 className="font-semibold mb-2"></h4>
-    <div className="h-56 w-full  flex justify-center items-center rounded overflow-hidden">
-      {image ? (
-        <img
-          src={image}
-          alt="Growth chart"
-          className="object-cover w-full h-full"
-        />
-      ) : (
-        <span className="text-gray-500">[Bar Chart Placeholder]</span>
-      )}
-    </div>
-  </div>
-);
+const GrowthChart = () => {
+  const chartData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [
+      {
+        label: 'Startups Growth',
+        data: [120, 190, 300, 250, 420, 380, 450, 520, 590, 640, 720, 800],
+        backgroundColor: 'rgba(6, 99, 32, 0.8)',
+        borderColor: 'rgba(6, 99, 32, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Investors Growth',
+        data: [80, 120, 150, 180, 220, 250, 280, 310, 350, 390, 420, 450],
+        backgroundColor: 'rgba(212, 165, 23, 0.8)',
+        borderColor: 'rgba(212, 165, 23, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
 
-const LocationMap = ({ image }) => (
-  <div className=" p-4 ">
-    <h4 className="font-semibold mb-2"></h4>
-    <div className="h-56 w-full  flex justify-center items-center  overflow-hidden">
-      {image ? (
-        <img
-          src={image}
-          alt="Location map"
-          className="object-cover w-full h-full"
-        />
-      ) : (
-        <span className="text-gray-500">[Map Placeholder]</span>
-      )}
+  return (
+    <div className="p-4">
+      <h4 className="font-semibold mb-2 text-gray-700">Growth Overview</h4>
+      <BarChart data={chartData} height={224} />
     </div>
-  </div>
-);
+  );
+};
+
+const LocationMap = () => {
+  const chartData = {
+    labels: ['Accra', 'Kumasi', 'Takoradi', 'Tamale', 'Cape Coast', 'Sunyani'],
+    datasets: [
+      {
+        label: 'Startups by Location',
+        data: [450, 280, 150, 120, 90, 60],
+        backgroundColor: [
+          'rgba(6, 99, 32, 0.8)',
+          'rgba(212, 165, 23, 0.8)',
+          'rgba(59, 130, 246, 0.8)',
+          'rgba(239, 68, 68, 0.8)',
+          'rgba(168, 85, 247, 0.8)',
+          'rgba(34, 197, 94, 0.8)',
+        ],
+        borderColor: [
+          'rgba(6, 99, 32, 1)',
+          'rgba(212, 165, 23, 1)',
+          'rgba(59, 130, 246, 1)',
+          'rgba(239, 68, 68, 1)',
+          'rgba(168, 85, 247, 1)',
+          'rgba(34, 197, 94, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  return (
+    <div className="p-4">
+      <h4 className="font-semibold mb-2 text-gray-700">Location Distribution</h4>
+      <BarChart 
+        data={chartData} 
+        height={224}
+        options={{
+          indexAxis: 'y',
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        }}
+      />
+    </div>
+  );
+};
 
 
 
@@ -196,17 +236,12 @@ const Dashboard = () => {
       {/* Insights and Locations - GrowthChart wider than LocationMap */}
 <div className="grid grid-cols-5 gap-4">  {/* 5-column grid for fine control */}
   <div className="col-span-3">  {/* GrowthChart takes 3/5 width (60%) */}
-  
-  <GrowthChart image="/growth-chart.png" />
-
-
-
+    <GrowthChart />
   </div>
   <div className="col-span-2">  {/* LocationMap takes 2/5 width (40%) */}
-  <LocationMap image="/location-map.png" />
-
+    <LocationMap />
   </div>
-  </div>
+</div>
 
 
 
