@@ -23,6 +23,18 @@ const mockInvestors = [
   }
 ];
 
+export function InvestorResult() {
+  const location = useLocation();
+  const results = location.state?.results || [];
+
+  return (
+    <div>
+      <h2>Investors Found: {results.length}</h2>
+      {results.map(i => <div key={i._id}>{i.investorName}</div>)}
+    </div>
+  );
+}
+
 const InvestorResults = () => {
   const location = useLocation();
   const navigate = useNavigate();
